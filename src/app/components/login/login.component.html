@@ -1,8 +1,10 @@
 
-<div *ngIf="status=='true'">
-    <p>Haz accedido</p>
 
-</div>
+<app-modal-text 
+    [cartText]="textSend" 
+    *ngIf="textNone"   
+    (successfull)="closeModalText($event)" >
+</app-modal-text>
 <mat-spinner  value="10" *ngIf="loading" style="position: absolute; top:50%; left:50%;"></mat-spinner>
 
 <section class="main-box main-box-login" *ngIf="!dataLogin">
@@ -52,9 +54,7 @@
                 </div>
                 
         </form>
-        <div *ngIf="status=='failed'">
-            <p>Contraseña y/o coreo invalido</p>
-        </div>
+       
     </div>
     </article>
 </section>

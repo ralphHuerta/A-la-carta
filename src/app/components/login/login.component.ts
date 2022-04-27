@@ -1,4 +1,4 @@
-import { Component, OnInit,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit,Output, EventEmitter, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { FoodService } from 'src/api/service';
@@ -12,9 +12,10 @@ import { Store} from '@ngxs/store';
 })
 export class LoginComponent implements OnInit {
   @Output() getStatus = new EventEmitter;
+  @Input() textSend: string
+  public textNone: boolean= false
   public loging:string;
   public password:string;
-  public status:string;
   public loading= false;
   public dataLogin: any
   public tocken: any
@@ -23,7 +24,7 @@ export class LoginComponent implements OnInit {
     private store: Store) { 
     this.loging= "";
     this.password="";
-    this.status="";
+    this.textSend="Invalid password and/or email"
   }
 
   ngOnInit(): void {
@@ -48,14 +49,12 @@ export class LoginComponent implements OnInit {
         
         if(autentication){
           form.reset()
-          this.status="true"
           this.loading=false
           localStorage.setItem("dataLoging",JSON.stringify( autentication))
           this.router.navigate(['/home']);
 
 
         }else{
-          this.status="failed";
           this.loading=false;
         }
 
@@ -63,6 +62,7 @@ export class LoginComponent implements OnInit {
       },error=>{
         console.log(<any> error)
         this.loading=false;
+        this.textNone=true
       });
 
   }
@@ -70,6 +70,10 @@ export class LoginComponent implements OnInit {
    if(!this.dataLogin){
      this.router.navigate(['/home'])
    }
+  }
+
+  closeModalText(event: any){
+    this.textNone= event
   }
 
   

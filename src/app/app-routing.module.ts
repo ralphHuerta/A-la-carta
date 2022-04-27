@@ -8,7 +8,7 @@ import { DetailComponent } from './components/detail/detail.component';
 import { TestComponent } from './components/test/test.component';
 import { VigilanteGuard } from './vigilante.guard';
 const routes: Routes = [
-  {path: '', component: HomeComponent},
+  {path: '', component: HomeComponent, canActivate:[VigilanteGuard]},
   {path: 'login', component: LoginComponent},
   {path: 'home', component:HomeComponent, canActivate:[VigilanteGuard]},
   {path: 'buscar', component: CreateComponent, canActivate:[VigilanteGuard]},
