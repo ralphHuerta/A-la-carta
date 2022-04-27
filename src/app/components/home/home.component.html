@@ -34,7 +34,8 @@
             <p> Servings  <b>  {{item.servings}} </b></p>
             <!--<p *ngIf="item.sourceName">source Name: <span> {{item.sourceName}}</span></p>
             <p *ngIf="item.vegan">Is vegan: <span>{{item.vegan}}</span></p>-->
-            <button type="button" class="btn btn-info m-1"> Details</button>
+            <!--<button type="button" class="btn btn-info m-1"> Details</button>-->
+            <a  class="btn btn-info m-1" [routerLink]="['/deatalils/'+item.id]"> detalle</a>
             <button *ngIf="!buttomAdd" type="button" class="btn btn-danger m-1" (click)="confirmarDelete(item.id, item.title)" >Remove</button>
             <button *ngIf="buttomAdd" type="button" class="btn btn-success m-1" (click)="plateAdd(item.id)" >Add</button>
             
