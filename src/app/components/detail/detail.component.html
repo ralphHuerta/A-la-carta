@@ -1,0 +1,44 @@
+
+<app-modal-loading  [loadinActive]="loadinActive" ></app-modal-loading>
+
+<div *ngIf="infoSuccesful">
+    <section class="p-3 " style="text-align:center" *ngIf="plateInfo" >
+        <div class="bg-transparent shadow-sm row  marginMenu" >
+            <h1 class="text-success col-lg-8 col-md-8 col-sm-8 col-xl-8"> <em> {{plateInfo.title}} </em>  </h1>
+            <p class="col-lg-3 col-md-3 col-sm-3 col-xl-3 text-danger"> <abbr title="Price">Price per serving: <span>{{plateInfo.pricePerServing}}</span></abbr></p>
+
+        </div>
+        <div class=" row">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5" >
+                <img src={{plateInfo.image}} class="img-fluid shadow-lg p-1 mb-5 bg-white rounded" style="width: 250px; ">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3">
+                <p class="border-bottom"> <b>Data</b></p>
+                <p class="border-bottom"> Health score: <b>{{plateInfo.healthScore}}</b> </p>
+                <p class="border-bottom">spoonacular Score: <b>{{plateInfo.spoonacularScore}}</b> </p>
+                <p class="border-bottom">Servings: <b>{{plateInfo.serving}}</b> </p>
+                <p class="border-bottom">Ready in minutes: <b>{{plateInfo.readyInMinutes}}</b> </p>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xl-3 text-success">
+                <p class="border-bottom"><b class="text-black">Dieta </b></p>
+                <p class="border-bottom">Vegan:  <b> {{plateInfo.vegan}} </b></p>
+                <p class="border-bottom">Vegetarian: <b> {{plateInfo.vegetarian}} </b></p>
+                <p class="border-bottom">Very healthy <b>{{plateInfo.veryHealthy}}</b></p>
+                <p class="border-bottom">Very popular <b> {{plateInfo.veryPopular}}</b></p>
+                <p class="border-bottom"> Whole30:<b> {{plateInfo.whole30}}</b></p>
+            </div>
+            
+            <div  class="col-lg-12 col-md-12 col-sm-12 col-xl-12 border border-info">
+                <div [innerHTML]="plateInfo.summary"></div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xl-10 border-right mt-3">
+                <p class="border text-alig-center">
+                    EightWatchesr smart points: {{plateInfo.weightWatcherSmartPoints}}
+                </p>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 border-right mt-3">
+                <button class="bg-success">Ok!</button>
+            </div>
+        </div>
+    </section>
+</div>

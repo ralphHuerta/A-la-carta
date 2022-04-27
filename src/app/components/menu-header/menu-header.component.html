@@ -1,0 +1,38 @@
+<header style="width: 100%;" >
+    <nav class="navbar navbar-expand-lg navbar-light bg-warning " >
+        <div class="container-fluid " *ngIf="dataLogin">
+          <a class="navbar-brand menuLogo " style="width:40%;" href="#">A la Carta</a>
+          <button class="navbar-toggler "  type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon" ></span>
+          </button>
+          <div class="collapse navbar-collapse " style="width: 60%;" id="navbarNav">
+            <ul class="navbar-nav" style="width: 100%;">
+              <li class="nav-item" style="width: 30%;">
+                <a [routerLink]="['/home']" [routerLinkActive]="['actived']" class="nav-link active" aria-current="page">Platos</a>
+              </li>
+              <li class="nav-item " style="width: 30%;">                
+                <a class="nav-link" [routerLink]="['/buscar']" [routerLinkActive]="['actived']" class="nav-link active" aria-current="page"> Buscar </a>
+              </li>
+        
+              <li class="nav-item  " style="width: 30%;">
+                <a class="nav-link  " [routerLink]="['/login']" [routerLinkActive]="['actived']" (click)="remove()">Logout</a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+       <!-- <nav class="row">
+            <ul  class="row">
+                <li class="col-lg-3 col-md-3 col-sm-4 col-xs-3 menuLogo">  A LA CARTA</li>
+                <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" >  <a  [routerLink]="['/home']" [routerLinkActive]="['actived']">Platos</a></li>
+                <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2" > <a [routerLink]="['/buscar']" [routerLinkActive]="['actived']"> Buscar</a></li>
+                <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2"> <a [routerLink]="['/test']" [routerLinkActive]="['actived']">Contacto</a></li>
+                <li class="col-lg-2 col-md-2 col-sm-2 col-xs-2"> <a [routerLink]="['/']" [routerLinkActive]="['actived']">Logout</a></li>
+            </ul>
+        </nav>
+        -->
+  </header>
+
+
+  

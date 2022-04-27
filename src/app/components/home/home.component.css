@@ -1,0 +1,17 @@
+.example-card {
+    max-width: 400px;
+    margin-bottom: 8px;
+    position: absolute; 
+    left: 50%; 
+    top: 50%;
+  }
+
+  .card-price {
+    max-width: 340px;
+    font-size: 1rem;
+    padding: 0;
+
+  }
+  .homeFont{
+    font-size: 1rem;
+  }

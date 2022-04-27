@@ -1,0 +1,172 @@
+:root{
+    --primary-color: #00395e;
+    --secondary-color: #002D4c;
+    --third-color: #00b5e2;
+}
+body{
+  background-image: url(./assets/img/background.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  
+}
+nav{
+  width: 100%;
+}
+/*.marginMenu{
+  margin-top: 60px !important;
+  position:fixed;
+}*/
+.box-logo, .box-form, .pre-registro, .pre-login, .login{
+    float: left;
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+ .login{
+   float: right;
+ }
+
+
+.contain-img{
+    background-image: url(./assets/img/a-la-carta.png);
+    width: 60% ;
+    height: 60%;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+.access{
+    font-size: 35px;
+    color: #43425D;
+    text-align: center;
+    letter-spacing: 10px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: 500;
+    line-height: 1.2;
+    display: block
+
+}
+.idd-usser{
+    width: 100%;
+}
+.idd-usser{
+    height: 30px;
+    margin-top: 20px;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    border-bottom: 1px solid #E9E9F0;
+    word-wrap: break-word;
+
+}
+/*
+header{
+    background-color: var(--third-color);
+}
+header div div nav ul li{
+    list-style:none
+}
+header nav ul li a {
+    text-decoration: none;
+    color: #e1e9ee;
+    font-size: 1.5em;
+}*/
+.menuLogo{
+    font-size: 1.7em;
+    color: #e1e9ee !important;
+    text-align: center;
+}
+@media all and  (max-width:720px){
+  .main-boxS{
+      width: 100%;
+      height: 600px;
+      display: block;
+      margin-top: 41px;
+  }
+  .main-box{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    /* grid-template-rows: auto auto; */
+    margin-top: -15px;
+  }
+  .box-form, .login{
+    width: 100%;
+  }
+  
+  .pre-login{
+    grid-row: 1 / 2;
+    margin-top: 20px;
+  }
+  .login{
+    grid-row: 2 / 3;
+    margin-top: -90px;
+  }
+  .login2{
+    grid-row: 2 / 3;
+    margin-top: -20px;
+    text-align: -webkit-center;
+  }
+
+  .main-box__pre-registro{
+    display: grid;
+    grid-template-rows: 10% 45% 45%;
+    /* grid-template-rows: auto auto; */
+    margin-top: 50px;
+  }
+  .main-box-login{
+    display: grid;
+    grid-template-rows: 50% 50%;
+    /* grid-template-rows: auto auto; */
+    margin-top: 25px;
+  }
+    .pre-login{
+        width: 100%;
+        height: auto;
+    }
+    .pre-login2{
+        width: 362px;
+        margin-top: -50px;
+    }
+    .contain-img{
+        width: 25%;
+        height: 80%;
+            margin-top: 70px;
+    }
+
+    .pre-registro, .login{
+        height: 50%;
+    }
+   
+    .login-register{
+      grid-row: 2 / 3;
+      margin-top: 20px;
+    }
+    .login-cube{
+        text-align: center;
+        width: 75%;
+    }
+    .login-cube2{
+        text-align: center;
+        width: 75%;
+    }
+  
+}
+
+@media all and (max-width: 500px){
+ .btnQuery{
+   width: 30px;
+ }
+}
+
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

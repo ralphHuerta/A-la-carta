@@ -1,0 +1,51 @@
+
+<app-modal-loading  [loadinActive]="loadinActive" ></app-modal-loading>
+<mat-card class="example-card" *ngIf="isDelete">
+    <mat-card-title-group>
+      <mat-card-title>You want to delete the dish:
+        <b> {{namePlate}}</b></mat-card-title>
+     
+    </mat-card-title-group>
+    <mat-card-content class="text-center">
+        <button class="btn btn-danger" (click)=" deleteSuccesful()" >Cancel</button>
+        <button class="btn btn-success m-3" (click)="putDelete(idGlobal)" >OK!</button>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card class="card-price" *ngIf="!buttomAdd">
+    <mat-card-title-group>
+      <mat-card-title  class="homeFont">
+        Total price accumulated by service:
+        <b>$ {{priceTotalService}}</b>
+      </mat-card-title>
+     
+    </mat-card-title-group>
+  </mat-card>
+
+
+<section class="marginMenu">
+    
+    <div *ngIf="information" class="row d-flex flex-row justify-content-center alig-items-center">
+        <div *ngFor="let item of information " class="col-xl-3 col-lg-4 col-md-4 col-6 m-3 border-bottom border-end bg-light">
+            <img  src={{item.image}} class="img-fluid shadow-lg p-3 mb-2 bg-white rounded " alt="">
+            <p class=" rounded text-center" style="background-color:darkgoldenrod; color:#ffffff"> <span>{{item.title}}</span></p>
+            <p>Price per serving  <b> $ {{item.pricePerServing}}</b></p>
+            <p> Ready in minutes <b>  {{item.readyInMinutes}} </b> </p>
+            <p> Servings  <b>  {{item.servings}} </b></p>
+            <!--<p *ngIf="item.sourceName">source Name: <span> {{item.sourceName}}</span></p>
+            <p *ngIf="item.vegan">Is vegan: <span>{{item.vegan}}</span></p>-->
+            <button type="button" class="btn btn-info m-1"> Details</button>
+            <button *ngIf="!buttomAdd" type="button" class="btn btn-danger m-1" (click)="confirmarDelete(item.id, item.title)" >Remove</button>
+            <button *ngIf="buttomAdd" type="button" class="btn btn-success m-1" (click)="plateAdd(item.id)" >Add</button>
+            
+        </div>
+    </div>
+    <div *ngIf="!information && !buttomAdd" class="row d-flex flex-row justify-content-center alig-items-center m-4" >
+        <div class="  col-xl-4 m-5 border-bottom border-end bg-light text-alig-center">
+            <h1 class="text-center fw-light">Para ver su menu por favor busque sus platillos</h1>
+        </div>
+    </div>
+
+    
+</section>
+

@@ -1,0 +1,90 @@
+
+<app-modal-text [cartText]="textSend" *ngIf="textNone"   (successfull)="closeModalText($event)" ></app-modal-text>
+<!--<mat-spinner  value="10" *ngIf="loadin" style="position: absolute; top:50%; left:50%;"></mat-spinner>-->
+<app-modal-loading  [loadinActive]="loadin" ></app-modal-loading>
+<div style="display: flex;">
+    <form #projectForm="ngForm" (ngSubmit)="getPlatos()" style="width: 80%">
+        <div class="row d-flex flex-row justify-content-center alig-items-center">
+            <div class="input-group mb-3 m-2" style="width: 50%;">
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="look for food" 
+                    aria-label="Recipient's username" 
+                    aria-describedby="basic-addon2"
+                    name="namePlatos"   
+                    [(ngModel)]="namePlato"
+                >
+                <div class="input-group-append">
+                    <button 
+                        class="btn btn-outline-secondary" 
+                        type="button"
+                        type="submit" 
+                        
+                    >
+                        <svg 
+                            xmlns="http://www.w3.org/2000/svg" 
+                            width="16" 
+                            height="16" 
+                            fill="currentColor" 
+                            class="bi bi-search" 
+                            viewBox="0 0 16 16"
+                        >
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+        
+    </form>
+    <div style="width: 10%" >
+
+        <div class="btn-group mb-3 m-2">
+            <button type="button" class="btn btn-info dropdown-toggle-split bi bi-filter" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="visually-hidden">Filter</span>
+            Filter
+            </button>
+            <ul class="dropdown-menu">
+                <li><button class="dropdown-item" (click)="getPlatos()">All</button></li>
+                <li><button class="dropdown-item" (click)="getfilter('vegan')">Vegan</button></li>
+                <li><button class="dropdown-item" (click)="getfilter('vegetarian')">vegetarian</button></li>
+                <li><button class="dropdown-item" (click)="getfilter('lacto-vegetarian')">Lacto vegetarian</button></li>
+                <li><button class="dropdown-item" (click)="getfilter('ovo-vegetarian')">Ovo vegetarian</button></li>
+                <li><button class="dropdown-item" (click)="getfilter('pescetarian')">Pescetarian</button></li>
+                <li><button class="dropdown-item" (click)="getfilter('paleo')">Paleo</button></li>
+                <li><button class="dropdown-item" (click)="getfilter('fodmap')">Low FODMAP</button></li>
+                <li><button class="dropdown-item" (click)="getfilter('whole30')">whole30</button></li>
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>
+<app-home [information]="food" [buttomAdd]="true" (idAdd)="saveMenuFood($event)" ></app-home>
+<!--
+<div *ngIf="food" class="row d-flex flex-row justify-content-center alig-items-center">
+    
+    <div *ngFor="let item of food " class="col-xl-3 col-lg-4 col-md-4 col-6 m-3 border-bottom border-end bg-light">-->
+        <!-- <div *ngIf="textaddPlato" style="background-color: green;"> Plato agregado</div>-->
+   <!--     <p> {{item.title}}</p>
+        <img  src={{item.image}} class="img-fluid" alt="">
+        
+        
+            <a [routerLink]="['/deatalils/'+item.id]"> detalle</a>
+       
+        <button 
+            type="button" 
+            class="btn btn-info m-1"
+            (click)="saveMenuFood(item.title, item.id)"
+        > 
+            Add
+        </button>
+        <button type="button" class="btn btn-danger m-1" >Eliminar</button>
+        
+    </div>
+</div>
+-->
+

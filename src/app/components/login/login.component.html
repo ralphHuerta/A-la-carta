@@ -1,0 +1,60 @@
+
+<div *ngIf="status=='true'">
+    <p>Haz accedido</p>
+
+</div>
+<mat-spinner  value="10" *ngIf="loading" style="position: absolute; top:50%; left:50%;"></mat-spinner>
+
+<section class="main-box main-box-login" *ngIf="!dataLogin">
+    <article class="pre-login pre-login2">
+        <div class="contain-img">
+            
+        </div>
+    </article>
+    <article class="login login2">
+        <div class="login-cube2">
+            <h1 class="access">A la carta</h1>
+            <p > ¡Bienvenido!, ¿Qué va a ordenar? </p>
+            
+            <form #projectForm="ngForm" (ngSubmit)="entrar(projectForm)">
+                <div>
+                    <input 
+                        type="loging"  
+                        name="loging" 
+                        #login="ngModel"   
+                        [(ngModel)]="loging"
+                        class="idd-usser" 
+                        placeholder="Ingresa tu correo" 
+                        required
+                    >
+                </div>
+                <div>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        #passwords="ngModel" 
+                        [(ngModel)]="password"
+                        class="idd-usser" 
+                        placeholder="Contraseña"  
+                        required>
+                </div>
+                
+                <div class="mt-auto  p-1">
+                    <input
+                        class="btn btn-success btn-lg" 
+                        type="submit" 
+                        value="Entrar" 
+                        [disabled]="!projectForm.form.valid">
+                       <!-- <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" >
+
+                        </ngx-loading>-->
+                </div>
+                
+        </form>
+        <div *ngIf="status=='failed'">
+            <p>Contraseña y/o coreo invalido</p>
+        </div>
+    </div>
+    </article>
+</section>
