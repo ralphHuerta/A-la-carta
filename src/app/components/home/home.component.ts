@@ -19,6 +19,8 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
  public idGlobal: string
  public indexDelete: any
  public priceTotalService: number
+ public readyInMinutes: number
+ public healthScore:number
  public closeModal: boolean= false
  @Input() seeHome: boolean
  @Input() information=new Array()
@@ -35,6 +37,8 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
     this.idGlobal=""
     this.buttomAdd= false
     this.priceTotalService=0
+    this.readyInMinutes=0
+    this.healthScore=0
     this.seeHome=false
   }
 
@@ -79,6 +83,8 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
           var informatitionRecived=response
 
            this.priceTotalService+= response.pricePerServing
+           this.readyInMinutes=response.readyInMinutes
+           this.healthScore=response.healthScore
            
          this.information.push(informatitionRecived )
            this.loadinActive=false
@@ -137,6 +143,8 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
     }
     this,this.information.splice(0,3)
     this.priceTotalService=0
+    this.healthScore=0
+    this.readyInMinutes=0
     if(cont>1){
       this.menuPlates()
       }else{
