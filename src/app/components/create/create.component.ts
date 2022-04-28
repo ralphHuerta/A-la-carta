@@ -117,6 +117,11 @@ export class CreateComponent implements OnInit, DoCheck{
     this.filter= isFilter
     this.getPlatos()
   }
+  validSearh(){
+    if(this.namePlato.length>2){
+      this.getPlatos()
+    }
+  }
   getPlatos(){
     this.loadin=true
     this.food= null

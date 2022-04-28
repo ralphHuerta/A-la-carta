@@ -8,7 +8,7 @@
 <!--<mat-spinner  value="10" *ngIf="loadin" style="position: absolute; top:50%; left:50%;"></mat-spinner>-->
 <app-modal-loading  [loadinActive]="loadin" ></app-modal-loading>
 <div style="display: flex;">
-    <form #projectForm="ngForm" (ngSubmit)="getPlatos()" style="width: 80%">
+    <form #projectForm="ngForm" (ngSubmit)="validSearh()" style="width: 80%">
         <div class="row d-flex flex-row justify-content-center alig-items-center">
             <div class="input-group mb-3 m-2" style="width: 50%;">
                 <input 
