@@ -126,9 +126,9 @@ export class CreateComponent implements OnInit, DoCheck{
     this.loadin=true
     this.food= null
 
-    var search= "&query="+this.namePlato+"&number=20";
+    var search= "&query="+this.namePlato+"&number=200";
     if(this.filter.length>1){
-      search="&diet=vegan&number=20"
+      search="&diet=vegan&number=200"
     }
     this.filter= " "
     
