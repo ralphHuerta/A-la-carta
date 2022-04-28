@@ -15,7 +15,6 @@ export class ModalLoadingComponent implements OnInit, DoCheck {
   ngOnInit(): void {
   }
   ngDoCheck(): void {
-   console.log(" estoy en el modal  "+ this.loadinActive);
   }
 
 }

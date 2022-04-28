@@ -18,11 +18,11 @@ export class CreateComponent implements OnInit, DoCheck{
   @Input() food: any;
   public namePlato: string;
   public addPlato: SaveFood[]
-  public textaddPlato: boolean
   public vegan: boolean
   public filter: string
   public loadin: boolean
   @Input() textSend: string
+  @Input() seeHome: boolean= true
   public textNone: boolean
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'determinate';
@@ -32,7 +32,6 @@ export class CreateComponent implements OnInit, DoCheck{
     private store: Store) {
     this.namePlato= "";
     this.addPlato=[]
-    this.textaddPlato= false // color green with add the plate 
     this.vegan= false
     this.filter= ''
     this.loadin= false
@@ -47,30 +46,11 @@ export class CreateComponent implements OnInit, DoCheck{
     
   }
   searhsPlatos(form: any){
-    /*if(this.namePlato.length > 2){
-      //debounce(() => interval(500))
-     var aux= debounce(()=> (this.getPlatos(this.namePlato), interval(5)));
-      console.log(aux)
-    }else{
-      debounceTime(200)
-    }
     
-    console.log(form)*/
     this.food= <any>
     console.log("-------")
-    /*var ids= ["123","456","789","012","345"]
-    var dietas= ["S123","S456","S789","S012","S345"]
-    for(var i= 0; i< 5; i++){
-      this.addFood( ids[i], dietas[i])
-    }*/
-    
-    //console.log("-------")
-    //this.getPlatos(this.namePlato)
    
   }
- /* addFood(id: string, dieta: string){
-    this.store.dispatch( new  AddPost({id:id, dieta: dieta })); 
-  }*/
 
   saveMenuFood( id: string){
     
@@ -86,8 +66,6 @@ export class CreateComponent implements OnInit, DoCheck{
           this.vegan= response.vegan
         }
       
-       
-      this.textaddPlato= true
       const menu = localStorage.getItem('menuFood')
       let menuFood= [{
         dieta: this.vegan,
@@ -107,11 +85,11 @@ export class CreateComponent implements OnInit, DoCheck{
         });
         if(lengArrayMenu< 4){
           if(contDietaVegan >= 2 && menuFood[0].dieta== true){
-            this.textSend="Ya no se puede agregar mas alimentos veganos"
+            this.textSend="No more vegan foods can be added"
             return 
           }
           if(contNoDieta >= 2 && menuFood[0].dieta== false){
-            this.textSend=" Favor de agregar alimentos veganos"
+            this.textSend=" Dish not added, please add vegan food"
             return 
           }
         }
@@ -120,11 +98,11 @@ export class CreateComponent implements OnInit, DoCheck{
         });
       }
       if(lengArrayMenu<4){
-        this.textSend=" successfully added" 
+        this.textSend=" Added successfully" 
         localStorage.setItem("menuFood",JSON.stringify( menuFood))
         
       }else{
-        this.textSend="Ya no se pueden agregar mas platos "
+        this.textSend="No more dishes can be added "
       }
     },error=>{
       console.log(<any> error)

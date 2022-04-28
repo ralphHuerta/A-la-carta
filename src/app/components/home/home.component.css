@@ -2,8 +2,8 @@
     max-width: 400px;
     margin-bottom: 8px;
     position: absolute; 
-    left: 50%; 
-    top: 50%;
+    left: 34%; 
+    top: 35%;
   }
 
   .card-price {
@@ -14,4 +14,19 @@
   }
   .homeFont{
     font-size: 1rem;
+  }
+
+
+  @media (min-width: 576px) and (max-width:768px){
+    .example-card {
+      max-width: 400px;
+      left: 30%; 
+    }  
+  }
+
+  @media (max-width:576px){
+    .example-card {
+      width: 100%;
+      left: 1%; 
+    }  
   }

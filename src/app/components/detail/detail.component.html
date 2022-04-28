@@ -1,13 +1,14 @@
 
 <app-modal-loading  [loadinActive]="loadinActive" ></app-modal-loading>
 
-<div *ngIf="infoSuccesful">
-    <section class="p-3 " style="text-align:center" *ngIf="plateInfo" >
-        <div class="bg-transparent shadow-sm row  marginMenu" >
-            <h1 class="text-success col-lg-8 col-md-8 col-sm-8 col-xl-8"> <em> {{plateInfo.title}} </em>  </h1>
+<mat-card class="example-card">
+    <mat-card-title-group class="bg-transparent shadow-sm row">
+        
+            <h1 class="text-success col-lg-8 col-md-8 col-sm-8 col-xl-8"> <em> {{plateInfo.title}} soy el titulo de la comida </em>  </h1>
             <p class="col-lg-3 col-md-3 col-sm-3 col-xl-3 text-danger"> <abbr title="Price">Price per serving: <span>{{plateInfo.pricePerServing}}</span></abbr></p>
-
-        </div>
+        
+    </mat-card-title-group>
+    <mat-card-content >
         <div class=" row">
             <div class="col-lg-5 col-md-5 col-sm-5 col-xl-5" >
                 <img src={{plateInfo.image}} class="img-fluid shadow-lg p-1 mb-5 bg-white rounded" style="width: 250px; ">
@@ -37,8 +38,9 @@
                 </p>
             </div>
             <div class="col-lg-2 col-md-2 col-sm-2 col-xl-2 border-right mt-3">
-                <button class="bg-success">Ok!</button>
+                <button class="bg-success" (click)="closeModalDetails()" >Ok!</button>
             </div>
         </div>
-    </section>
-</div>
+        
+    </mat-card-content>
+  </mat-card>

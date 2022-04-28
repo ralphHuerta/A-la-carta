@@ -19,20 +19,9 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
  public idGlobal: string
  public indexDelete: any
  public priceTotalService: number
- @Input() information=[{
-    id: String,
-    image: String,
-    sourceName: String,
-    vegan:Boolean,
-    title: String,
-    vegetarian: Boolean,
-    gaps: String,
-    healthScore: Number,
-    pricePerServing: Number,
-    readyInMinutes: Number,
-    servings: Number,
-
-  }]
+ public closeModal: boolean= false
+ @Input() seeHome: boolean
+ @Input() information=new Array()
   @Output() idAdd= new EventEmitter
   @Input() buttomAdd: boolean
    
@@ -46,10 +35,11 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
     this.idGlobal=""
     this.buttomAdd= false
     this.priceTotalService=0
+    this.seeHome=false
   }
 
   ngOnInit(): void {
-    if(!this.buttomAdd){
+   if(!this.buttomAdd){
       this.menuPlates()
     }
 
@@ -67,6 +57,7 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
     const arrayPlatos=new Array()
 
     if(menu){
+      this.seeHome=true;
       var aux= JSON.parse(menu)
       aux.forEach( function(object: any){
          arrayPlatos.push(object.id)     
@@ -85,19 +76,7 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
     this._FoodServoce.getInfotmation(id).subscribe(
       response =>{
         if(response){
-          var informatitionRecived={
-            id: response.id,
-            image: response.image,
-            sourceName: response.sourceName,
-            vegan:response.vegan,
-            title: response.title,
-            vegetarian: response.vegetarian,
-            gaps: response.graps,
-            healthScore: response.healthScore,
-            pricePerServing: response.pricePerServing, 
-            readyInMinutes: response.readyInMinutes,
-            servings: response.servings,
-           }
+          var informatitionRecived=response
 
            this.priceTotalService+= response.pricePerServing
            
@@ -124,9 +103,13 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
     var menu = localStorage.getItem('menuFood')
     var indexdelete;
     var cont=0;
+    var iguales=0
     const arrayPlatos=new Array()
     var menuFood
     if(menu){
+      if(menu.length==1){
+        this.seeHome=false
+         console.log("mi array es de"+ menu.length)}
       var deleteMenu= JSON.parse(menu)
      deleteMenu.forEach( function(object: any){
       menuFood= {
@@ -136,20 +119,37 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
          if(object.id !== id){
           arrayPlatos.push(menuFood)  
           indexdelete= cont;
+         }else{ iguales++}
+         if((object.id == id) && (iguales >= 2)){
+          arrayPlatos.push(menuFood)  
+          indexdelete= cont;
          }
          cont++;
       });
+      if(cont==1){
+        this.seeHome=false
+        localStorage.removeItem("menuFood")
+         console.log("mi contador es de"+ cont)
+        }
 
       localStorage.setItem("menuFood",JSON.stringify( arrayPlatos))
       this.indexDelete=indexdelete;
     }
     this,this.information.splice(0,3)
     this.priceTotalService=0
-    this.menuPlates()
+    if(cont>1){
+      this.menuPlates()
+      }else{
+        localStorage.removeItem("menuFood")
+      }
+    
     this.isDelete=false
   }
 
   plateAdd(event: any){
     this.idAdd.emit(event)
+  }
+  closeModalDetail(event: any){
+    this.closeModal= event
   }
 }

@@ -1,5 +1,10 @@
 
-<app-modal-text [cartText]="textSend" *ngIf="textNone"   (successfull)="closeModalText($event)" ></app-modal-text>
+<app-modal-text 
+    [cartText]="textSend" 
+    *ngIf="textNone"   
+    (successfull)="closeModalText($event)" 
+    >
+</app-modal-text>
 <!--<mat-spinner  value="10" *ngIf="loadin" style="position: absolute; top:50%; left:50%;"></mat-spinner>-->
 <app-modal-loading  [loadinActive]="loadin" ></app-modal-loading>
 <div style="display: flex;">
@@ -63,28 +68,9 @@
         </div>
     </div>
 </div>
-<app-home [information]="food" [buttomAdd]="true" (idAdd)="saveMenuFood($event)" ></app-home>
-<!--
-<div *ngIf="food" class="row d-flex flex-row justify-content-center alig-items-center">
-    
-    <div *ngFor="let item of food " class="col-xl-3 col-lg-4 col-md-4 col-6 m-3 border-bottom border-end bg-light">-->
-        <!-- <div *ngIf="textaddPlato" style="background-color: green;"> Plato agregado</div>-->
-   <!--     <p> {{item.title}}</p>
-        <img  src={{item.image}} class="img-fluid" alt="">
-        
-        
-            <a [routerLink]="['/deatalils/'+item.id]"> detalle</a>
-       
-        <button 
-            type="button" 
-            class="btn btn-info m-1"
-            (click)="saveMenuFood(item.title, item.id)"
-        > 
-            Add
-        </button>
-        <button type="button" class="btn btn-danger m-1" >Eliminar</button>
-        
-    </div>
-</div>
--->
-
+<app-home 
+    [information]="food" 
+    [buttomAdd]="true" 
+    (idAdd)="saveMenuFood($event)" 
+    [seeHome]="seeHome">
+</app-home>

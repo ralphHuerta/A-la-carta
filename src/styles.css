@@ -10,6 +10,15 @@ body{
   background-attachment: fixed;
   
 }
+
+header nav div div ul li a:hover,
+.actived{
+    color: rgba(127, 158, 128, 0.8);
+    font-size: 1.2rem;
+}
+.colorFooter{
+  text-align: center;
+}
 nav{
   width: 100%;
 }
@@ -34,10 +43,12 @@ nav{
 
 .contain-img{
     background-image: url(./assets/img/a-la-carta.png);
-    width: 60% ;
-    height: 60%;
+    width: 30% ;
+    height: 30%;
     background-repeat: no-repeat;
     background-size: contain;
+    position: absolute;
+   
 
 }
 
@@ -136,8 +147,7 @@ header nav ul li a {
     }
     .contain-img{
         width: 25%;
-        height: 80%;
-            margin-top: 70px;
+        margin-top: 70px;
     }
 
     .pre-registro, .login{

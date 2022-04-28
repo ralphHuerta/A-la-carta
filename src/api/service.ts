@@ -17,7 +17,6 @@ export class FoodService{
 
     getPlatos(dieta: string):  Observable<any>{
         let headers = new HttpHeaders().set('Content_type','application/json');
-       // return this._http.get(this.url +"recipes/complexSearch"+ this.apiKey)
        return this._http.get(this.url+"recipes/complexSearch"+this.apiKey+dieta+'&addRecipeNutrition=true')
     }
     getInfotmation(id: string): Observable<any>{
