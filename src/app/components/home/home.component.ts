@@ -160,4 +160,9 @@ export class HomeComponent implements OnInit, OnChanges, DoCheck {
   closeModalDetail(event: any){
     this.closeModal= event
   }
+   capturarID(idOpen: any){
+
+  console.log(idOpen);    
+    this.idGlobal= idOpen;
+   }
 }

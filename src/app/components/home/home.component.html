@@ -43,10 +43,10 @@
             <p>Price per serving  <b> $ {{item.pricePerServing}}</b></p>
             <p> Ready in minutes <b>  {{item.readyInMinutes}} </b> </p>
             <p> Servings  <b>  {{item.servings}} </b></p>
-           <button type="button" class="btn btn-info m-1" (click)="closeModalDetail(true)"> Details</button>
+           <button type="button" class="btn btn-info m-1" (click)="closeModalDetail(true);capturarID(item.id)"> Details</button>
             <button *ngIf="!buttomAdd" type="button" class="btn btn-danger m-1" (click)="confirmarDelete(item.id, item.title)" >Remove</button>
             <button *ngIf="buttomAdd" type="button" class="btn btn-success m-1" (click)="plateAdd(item.id)" >Add</button>
-            <app-detail *ngIf="closeModal" [plateInfo]="item"  (closeModal)="closeModalDetail($event)"></app-detail>
+            <app-detail *ngIf="closeModal && idGlobal=== item.id" [plateInfo]="item"  (closeModal)="closeModalDetail($event)"></app-detail>
         </div>
     </div>
     <div *ngIf="!seeHome && !buttomAdd" class="row d-flex flex-row justify-content-center alig-items-center m-4" >
